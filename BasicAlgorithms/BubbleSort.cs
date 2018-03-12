@@ -5,21 +5,19 @@ namespace BasicAlgorithms
 {
     public class BubbleSort
     {
-        public int[] ArrayOfIntegers { get; set; }
-
-        public void Sort(int[] ArrayofIntegers)
+        public static void Sort(int[] Items)
         {
             int i = 0;
             int j = 0;
-            for(i= 0; i <= ArrayofIntegers.Length - 1; i++)
+            for(i= 0; i <= Items.Length - 1; i++)
             {
-                for (j = i + 1; j <= ArrayofIntegers.Length - 1; j++)
+                for (j = i + 1; j <= Items.Length - 1; j++)
                 {
-                    if(ArrayofIntegers[i] > ArrayofIntegers[j])
+                    if(Items[i] > Items[j])
                     {
-                        int aux = ArrayofIntegers[i];
-                        ArrayofIntegers[i] = ArrayofIntegers[j];
-                        ArrayofIntegers[j] = aux;
+                        int aux = Items[i];
+                        Items[i] = Items[j];
+                        Items[j] = aux;
                     }
                 }
             }

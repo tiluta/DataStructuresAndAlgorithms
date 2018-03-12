@@ -9,25 +9,23 @@ namespace BasicAlgorithmsTests
     {
         //Given When Then
         [TestMethod]
-        public void ArrayWithDuplicatesElem_Sort_ArrayAscendingSort()
+        public void ArrayWithDuplicatesElem_Sort_ArrayAscendingSorted()
         {
 
-            int[] unsortedList = new int[] {2, 2, 1};
-            int[] sortedList = new int[] { 1, 2, 2 };
-            BubbleSort bubbleSort = new BubbleSort();
-            bubbleSort.Sort(unsortedList);
-            CollectionAssert.AreEqual(unsortedList, sortedList);  
+            int[] actual = new int[] {2, 2, 1};
+            int[] expected = new int[] { 1, 2, 2 };
+            BubbleSort.Sort(actual);
+            CollectionAssert.AreEqual(expected, actual);  
         }
 
         [TestMethod]
-        public void ArrayWithNoElemDuplicates_Sort_ArrayAscendingSort()
+        public void ArraySortedDescending_Sort_ArrayAscendingSorted()
         {
 
-            int[] unsortedList = new int[] { 3, 2, 1};
-            int[] sortedList = new int[] { 1, 2, 3};
-            BubbleSort bubbleSort = new BubbleSort();
-            bubbleSort.Sort(unsortedList);
-            CollectionAssert.AreEqual(unsortedList, sortedList);
+            int[] actual = new int[] { 3, 2, 1};
+            int[] expected = new int[] { 1, 2, 3};
+            BubbleSort.Sort(actual);
+            CollectionAssert.AreEqual(expected, actual);
         }
     }
 }
