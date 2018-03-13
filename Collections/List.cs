@@ -54,11 +54,36 @@ namespace Collections
             }
             else
             {
-                if (Head.Next == null)
+                if(Head.Next == null)
                 {
                     Head = null;
                     Length--;
                 }
+                else
+                {
+                    Node first = Head;
+                    while (first.Next != null)
+                    {
+                        first = first.Next;
+                    }
+                    first = null;
+                    Length--;
+                }
+              
+            }
+        }
+
+        public void RemoveHead()
+        {
+            if(Head == null)
+            {
+                throw new InvalidOperationException("Empty list");
+            }
+            else
+            {
+                Head = Head.Next;
+                Length--;
+
             }
         }
 
