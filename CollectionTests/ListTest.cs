@@ -139,7 +139,7 @@ namespace CollectionsTests
         }
 
         [TestMethod]
-        public void TwoElementList_RemoveHead_LengthTwo()
+        public void ThreeElementList_RemoveHead_LengthTwo()
         {
             List myList = new List();
             myList.AddToTail(new Node(1, null));
@@ -147,6 +147,29 @@ namespace CollectionsTests
             myList.AddToTail(new Node(2, null));
             myList.RemoveHead();
             Assert.AreEqual(2, myList.Length);
+        }
+
+        [TestMethod]
+        public void ThreeElementList_RemoveIndex_LengthTwo()
+        {
+            List myList = new List();
+            myList.AddToTail(new Node(1, null));
+            myList.AddToTail(new Node(2, null));
+            myList.AddToTail(new Node(3, null));
+            myList.RemoveIndex(2);
+            Assert.AreEqual(2, myList.Length);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ThreeElementList_RemoveIndex_WrongIndex()
+        {
+            List myList = new List();
+            myList.AddToTail(new Node(1, null));
+            myList.AddToTail(new Node(2, null));
+            myList.AddToTail(new Node(3, null));
+            myList.RemoveIndex(6);
+            Assert.AreEqual(3, myList.Length);
         }
     }
 }
