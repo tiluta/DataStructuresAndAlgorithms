@@ -97,5 +97,79 @@ namespace CollectionsTests
             myList.RemoveTail();
             Assert.IsTrue(myList.Head == null);
         }
+
+        [TestMethod]
+        public void TwoElementList_RemoveTail_ListWithOneElem()
+        {
+            List myList = new List();
+            myList.AddToTail(new Node(1, null));
+            myList.AddToTail(new Node(2, null));
+            myList.AddToTail(new Node(3, null));
+
+            myList.RemoveTail();
+            Assert.AreEqual(2, myList.Length);
+        }
+
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void EmptyList_RemoveHead_ThrowsException()
+        {
+            List myList = new List();
+            myList.RemoveHead();
+        }
+
+        [TestMethod]
+        public void OneElementList_RemoveHead_ListIsEmpty()
+        {
+            List myList = new List();
+            myList.AddToTail(new Node(1, null));
+            myList.RemoveHead();
+            Assert.IsTrue(myList.Head == null);
+        }
+
+        [TestMethod]
+        public void TwoElementList_RemoveHead_LengthOne()
+        {
+            List myList = new List();
+            myList.AddToTail(new Node(1, null));
+            myList.AddToTail(new Node(2, null));
+            myList.RemoveHead();
+            Assert.AreEqual(1, myList.Length);
+        }
+
+        [TestMethod]
+        public void ThreeElementList_RemoveHead_LengthTwo()
+        {
+            List myList = new List();
+            myList.AddToTail(new Node(1, null));
+            myList.AddToTail(new Node(2, null));
+            myList.AddToTail(new Node(2, null));
+            myList.RemoveHead();
+            Assert.AreEqual(2, myList.Length);
+        }
+
+        [TestMethod]
+        public void ThreeElementList_RemoveIndex_LengthTwo()
+        {
+            List myList = new List();
+            myList.AddToTail(new Node(1, null));
+            myList.AddToTail(new Node(2, null));
+            myList.AddToTail(new Node(3, null));
+            myList.RemoveIndex(2);
+            Assert.AreEqual(2, myList.Length);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ThreeElementList_RemoveIndex_WrongIndex()
+        {
+            List myList = new List();
+            myList.AddToTail(new Node(1, null));
+            myList.AddToTail(new Node(2, null));
+            myList.AddToTail(new Node(3, null));
+            myList.RemoveIndex(6);
+            Assert.AreEqual(3, myList.Length);
+        }
     }
 }

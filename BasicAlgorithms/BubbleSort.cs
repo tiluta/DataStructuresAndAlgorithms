@@ -20,13 +20,10 @@ namespace BasicAlgorithms
                         Items[i] = Items[j];
                         Items[j] = aux;
                     }
-
-
                 }
             }
-
-
         }
+  // TODO ternary operatory            
 
         private static bool IsOrderValid(bool ascending, int a, int b)
         {
@@ -34,9 +31,6 @@ namespace BasicAlgorithms
                 return a > b;
             else
                 return a < b;
-
         }
-
-
     }
 }
